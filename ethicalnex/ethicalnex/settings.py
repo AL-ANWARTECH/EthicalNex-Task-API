@@ -80,12 +80,18 @@ WSGI_APPLICATION = 'ethicalnex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ANWAR',
-        'USER': 'your_mysql_user',
-        'PASSWORD': 'your_mysql_password',
+        'NAME': 'anwar',
+        'USER': 'root',
+        'PASSWORD': 'AnwarSagir@360',
         'HOST': 'localhost',
         'PORT': '3306',
     }
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
 }
 
 
