@@ -1,12 +1,16 @@
-from django.shortcuts import render
-from rest_framework import generics, permissions
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework import generics, permissions, filters
 from .models import Task
 from .serializers import TaskSerializer
-# Create your views here.
-# List all tasks or create a new task
+
+# List all tasks or create a new task with filtering support
 class TaskListCreateView(generics.ListCreateAPIView):
     serializer_class = TaskSerializer
     permission_classes = [permissions.IsAuthenticated]
+    filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
+    filterset_fields = ['status', 'priority', 'due_date']  # Fields to filter by
+    search_fields = ['title', 'description']  # Fields to search by
+    ordering_fields = ['due_date', 'priority']  # Fields to order by
 
     def get_queryset(self):
         return Task.objects.filter(user=self.request.user)
