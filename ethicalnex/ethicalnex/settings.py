@@ -81,7 +81,7 @@ WSGI_APPLICATION = 'ethicalnex.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anwar',
+        'NAME': 'Ethicalnex_db',
         'USER': 'root',
         'PASSWORD': 'AnwarSagir@360',
         'HOST': 'localhost',
