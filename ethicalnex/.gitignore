@@ -1,0 +1,46 @@
+# Python bytecode files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+
+# Django stuff:
+*.log
+*.pot
+*.pyc
+*.db
+*.sqlite3
+db.sqlite3
+
+# VSCode settings
+.vscode/
+
+# Django migrations
+*/migrations/
+
+# Virtual environments
+venv/
+env/
+*.env
+
+# Static files
+/static/
+
+# Media files
+/media/
+
+# Local settings file
+local_settings.py
+
+# Coverage reports
+.coverage
+*.cover
+
+# Ignore IDE and editor folders
+*.swp
+*.swo
+
+# Additional Django files (if you use additional frameworks or packages)
+*.bak
+*.swp
