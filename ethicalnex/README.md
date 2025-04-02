@@ -41,23 +41,23 @@ class Task(models.Model):
 
 ## API Endpoints
 
- Method  | Endpoint                 | Purpose                              
----------|--------------------------|--------------------------------------
- POST    | `/register/`             | Register a new user                 
- POST    | `/login/`                | Authenticate and get a JWT token    
- GET     | `/tasks/`                | Retrieve all tasks                  
- POST    | `/tasks/`                | Create a new task                   
- GET     | `/tasks/{id}/`            Retrieve a specific task            
- PUT     | `/tasks/{id}/`            Update an existing task             
- PATCH   | `/tasks/{id}/complete/`   Change task status (complete/incomplete) 
- DELETE  | `/tasks/{id}/`            Delete a task                       
+ Method   Endpoint                  Purpose                              
+
+ POST     `/register/`              Register a new user                 
+ POST     `/login/`                 Authenticate and get a JWT token    
+ GET      `/tasks/`                 Retrieve all tasks                  
+ POST     `/tasks/`                 Create a new task                   
+ GET      `/tasks/{id}/`            Retrieve a specific task            
+ PUT      `/tasks/{id}/`            Update an existing task             
+ PATCH    `/tasks/{id}/complete/`   Change task status (complete/incomplete) 
+ DELETE   `/tasks/{id}/`            Delete a task                       
 
 ## Database Configuration (MySQL)
 ```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ANWAR',
+        'NAME': 'anwar',
         'USER': 'root',
         'PASSWORD': 'My_Password',
         'HOST': 'localhost',
@@ -100,6 +100,28 @@ DATABASES = {
 - **Security** – JWT (djangorestframework-simplejwt) for authentication.
 - **API Documentation** – Available via Swagger or DRF Docs.
 - **Hosting** – The API will be deployed on **Heroku** or **PythonAnywhere**.
+## Key Steps in Deployment
+1. Prepare the application
+-All features work
+-DEBUG = FALSE
+-ALLOWED_HOSTS
+-SSL, HTTPS,
+-COLLECT STATIC FILES
+2. Choose a hosting provider
+- Heroku, AWS, DigitalOcean, Pythonanywhere
 
+3. Setupt the server
+-Install Python, Django 
+-Dependencies
+- Virtual environment
+-Set up a DB
+
+4. Upload the code to the server
+-Git clone
+-Manually via FTP
+
+5. Handle static & media files
+6. Setup Domain , SSL
+7. Monitor
 This README will guide me through the project. 🚀
 
