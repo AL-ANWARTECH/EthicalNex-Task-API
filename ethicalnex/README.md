@@ -1,31 +1,31 @@
-# Task Management API
 
-## Overview
-This API helps users manage their tasks efficiently. It allows users to create, update, delete, and organize tasks, making it ideal for to-do lists and productivity tools.
+Task Management API
+Overview
+The Task Management API helps users efficiently manage their tasks. It provides functionality to create, update, delete, and organize tasks. Ideal for to-do lists or productivity tools, this API is secured with JWT authentication and deployed on PythonAnywhere.
 
-## Features
-- **User Authentication** – Users can register, log in, and use JWT for secure access.
-- **Task Management** – Users can add, update, delete, and view their tasks.
-- **Task Status Updates** – Tasks can be marked as complete or incomplete.
-- **Task Filtering** – Users can filter tasks by due date or completion status.
-- **Timestamps** – Each task has automatic timestamps for creation and updates.
-- **API Documentation** – Built with Swagger or DRF Docs for easy reference.
-- **Deployment** – The API will be hosted on **Heroku** or **PythonAnywhere**.
+Features
+User Authentication: Secure login with JWT (JSON Web Token).
 
-## Project Structure
-```
+Task Management: Create, update, delete, and view tasks with due dates and status.
+
+Task Filtering: Filter tasks by completion status or due date.
+
+API Documentation: Available via Swagger or DRF Docs.
+
+Deployment: Hosted on PythonAnywhere.
+
+Project Structure
+
 /task_management_api
-│── manage.py
-│── README.md
-│── requirements.txt
-│── users/  # Handles authentication
-│── tasks/  # Manages tasks
-│── my_project/  # Main Django settings
+│── manage.py             # Django management script
+│── README.md             # Project documentation
+│── requirements.txt      # List of dependencies
+│── users/                # User authentication app
+│── tasks/                # Task management app
+│── my_project/           # Main Django settings
 │── ...
-```
+Database Model
 
-## Database Model
-```python
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -37,91 +37,227 @@ class Task(models.Model):
     due_date = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-```
+API Endpoints
+Method	Endpoint	Purpose
+POST	/register/	Register a new user
+POST	/login/	Authenticate and get a JWT token
+GET	/tasks/	Retrieve all tasks
+POST	/tasks/	Create a new task
+GET	/tasks/{id}/	Retrieve a specific task
+PUT	/tasks/{id}/	Update an existing task
+PATCH	/tasks/{id}/complete/	Mark task as complete or incomplete
+DELETE	/tasks/{id}/	Delete a task
+Database Configuration (MySQL)
 
-## API Endpoints
-
- Method   Endpoint                  Purpose                              
-
- POST     `/register/`              Register a new user                 
- POST     `/login/`                 Authenticate and get a JWT token    
- GET      `/tasks/`                 Retrieve all tasks                  
- POST     `/tasks/`                 Create a new task                   
- GET      `/tasks/{id}/`            Retrieve a specific task            
- PUT      `/tasks/{id}/`            Update an existing task             
- PATCH    `/tasks/{id}/complete/`   Change task status (complete/incomplete) 
- DELETE   `/tasks/{id}/`            Delete a task                       
-
-## Database Configuration (MySQL)
-```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anwar',
+        'NAME': 'Ethicalnex_db',
         'USER': 'root',
         'PASSWORD': 'My_Password',
         'HOST': 'localhost',
         'PORT': '3306',
     }
 }
-```
+Project Timeline (5 Weeks)
+Week	Task Summary
+Week 1	Set up Django, MySQL, and authentication
+Week 2	Define models and implement authentication
+Week 3	Build API endpoints and CRUD functionality
+Week 4	Add filtering, documentation, and testing
+Week 5	Deploy and finalize the project
+Deployment (PythonAnywhere)
+Prepare the application:
 
-## Project Timeline (5 Weeks)
+Set DEBUG = False in settings.py.
 
- Week   Task Summary                                    
+Add PythonAnywhere domain to ALLOWED_HOSTS.
 
- Week 1  Set up Django, MySQL, and authentication      
- Week 2  Define models and implement authentication    
- Week 3  Build API endpoints and CRUD functionality    
- Week 4  Add filtering, documentation, and testing    
- Week 5  Deploy and finalize the project              
+Collect static files using python manage.py collectstatic.
 
-### Week 1 Accomplishments
-✔️ Installed Django, Django REST Framework, and MySQL  
-✔️ Created authentication and task management apps  
-✔️ Implemented JWT-based authentication  
-✔️ Set up Git for version control  
-✔️ Tested the API setup  
-✔️ Researched best practices for structuring models and serializers  
+Set up PythonAnywhere:
 
-## Challenges Faced & Solutions
-- **Understanding Django Documentation**: Initially found it difficult to navigate.
-  - **Solution**: Used external resources like YouTube, DRF documentation, and community forums.
-- **Database Connectivity Issues**: Encountered MySQL configuration errors.
-  - **Solution**: Adjusted MySQL settings, ensured the correct database URL, and resolved authentication errors.
-- **JWT Authentication Complexity**: Implementation was challenging.
-  - **Solution**: Followed official DRF SimpleJWT documentation and tested step by step.
-- **Task Filtering Logic**: Had trouble with dynamic filtering.
-  - **Solution**: Used DRF filters and Django ORM queries to refine filtering.
-- **CRUD Functionality Bugs**: Faced issues with updating and deleting tasks.
-  - **Solution**: Debugged serializers and views to ensure proper data handling.
+Create a virtual environment and install dependencies.
 
-## Additional Notes
-- **Security** – JWT (djangorestframework-simplejwt) for authentication.
-- **API Documentation** – Available via Swagger or DRF Docs.
-- **Hosting** – The API will be deployed on **Heroku** or **PythonAnywhere**.
-## Key Steps in Deployment
-1. Prepare the application
--All features work
--DEBUG = FALSE
--ALLOWED_HOSTS
--SSL, HTTPS,
--COLLECT STATIC FILES
-2. Choose a hosting provider
-- Heroku, AWS, DigitalOcean, Pythonanywhere
+Configure WSGI and project settings.
 
-3. Setupt the server
--Install Python, Django 
--Dependencies
-- Virtual environment
--Set up a DB
+Upload the code:
 
-4. Upload the code to the server
--Git clone
--Manually via FTP
+Clone the repository or upload manually.
 
-5. Handle static & media files
-6. Setup Domain , SSL
-7. Monitor
-This README will guide me through the project. 🚀
+Configure static and media files:
 
+Set up static and media URL paths.
+
+Monitor and debug:
+
+Use PythonAnywhere's error logs for troubleshooting.
+
+Testing with Postman
+To test the Task Management API using Postman, follow the steps below:
+
+1. Register a New User
+Request Type: POST
+
+Endpoint: /register/
+
+Body (JSON):
+
+
+{
+    "username": "testuser",
+    "password": "password123"
+}
+2. Login to Get JWT Token
+Request Type: POST
+
+Endpoint: /login/
+
+Body (JSON):
+
+
+{
+    "username": "testuser",
+    "password": "password123"
+}
+Response (Example):
+
+
+{
+    "access": "your_jwt_token"
+}
+Copy the access token from the response. You will use this token for authenticated requests.
+
+3. Create a New Task
+Request Type: POST
+
+Endpoint: /tasks/
+
+Headers:
+
+Authorization: Bearer <your_jwt_token>
+
+Body (JSON):
+
+
+{
+    "title": "New Task",
+    "description": "Description for new task",
+    "completed": false,
+    "due_date": "2025-04-12T12:00:00Z"
+}
+Response (Example):
+
+
+{
+    "id": 1,
+    "user": 1,
+    "title": "New Task",
+    "description": "Description for new task",
+    "completed": false,
+    "due_date": "2025-04-12T12:00:00Z",
+    "created_at": "2025-04-06T10:00:00Z",
+    "updated_at": "2025-04-06T10:00:00Z"
+}
+4. Get All Tasks
+Request Type: GET
+
+Endpoint: /tasks/
+
+Headers:
+
+Authorization: Bearer <your_jwt_token>
+
+Response (Example):
+
+
+[
+    {
+        "id": 1,
+        "user": 1,
+        "title": "New Task",
+        "description": "Description for new task",
+        "completed": false,
+        "due_date": "2025-04-12T12:00:00Z",
+        "created_at": "2025-04-06T10:00:00Z",
+        "updated_at": "2025-04-06T10:00:00Z"
+    }
+]
+5. Update a Task
+Request Type: PUT
+
+Endpoint: /tasks/{id}/
+
+Headers:
+
+Authorization: Bearer <your_jwt_token>
+
+Body (JSON):
+
+
+{
+    "title": "Updated Task",
+    "completed": true
+}
+Response (Example):
+
+
+{
+    "id": 1,
+    "user": 1,
+    "title": "Updated Task",
+    "description": "Description for new task",
+    "completed": true,
+    "due_date": "2025-04-12T12:00:00Z",
+    "created_at": "2025-04-06T10:00:00Z",
+    "updated_at": "2025-04-06T10:15:00Z"
+}
+6. Delete a Task
+Request Type: DELETE
+
+Endpoint: /tasks/{id}/
+
+Headers:
+
+Authorization: Bearer <your_jwt_token>
+
+Response (Example):
+
+
+{
+    "message": "Task deleted successfully"
+}
+7. Filter Tasks by Completion Status
+Request Type: GET
+
+Endpoint: /tasks/?completed=true
+
+Headers:
+
+Authorization: Bearer <your_jwt_token>
+
+Response (Example):
+
+
+[
+    {
+        "id": 2,
+        "user": 1,
+        "title": "Completed Task",
+        "description": "Task is completed",
+        "completed": true,
+        "due_date": "2025-04-10T12:00:00Z",
+        "created_at": "2025-04-05T09:00:00Z",
+        "updated_at": "2025-04-05T09:15:00Z"
+    }
+]
+Tests
+You can test the API using the above steps in Postman, and these requests will help verify that the system is working as expected.
+
+Additional Notes
+Security: Uses JWT for user authentication (djangorestframework-simplejwt).
+
+API Documentation: Available through Swagger or DRF Docs.
+
+Hosting: Deployed on PythonAnywhere.
+https://alanwartech.pythonanywhere.com/
