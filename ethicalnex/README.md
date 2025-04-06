@@ -1,6 +1,6 @@
 Task Management API
 Overview
-The Task Management API helps users efficiently manage their tasks. It provides functionality to create, update, delete, and organize tasks. Ideal for to-do lists or productivity tools, this API is secured with JWT authentication and deployed on PythonAnywhere.
+The Task Management API helps users efficiently manage their tasks. It allows users to create, update, delete, and organize tasks, making it ideal for to-do lists or productivity tools. The API is secured with JWT authentication and is deployed on PythonAnywhere.
 
 Features
 User Authentication: Secure login with JWT (JSON Web Token).
@@ -16,12 +16,12 @@ Deployment: Hosted on PythonAnywhere.
 Project Structure
 
 /task_management_api
-│── manage.py             # Django management script
-│── README.md             # Project documentation
-│── requirements.txt      # List of dependencies
-│── users/                # User authentication app
-│── tasks/                # Task management app
-│── my_project/           # Main Django settings
+│── manage.py              # Django management script
+│── README.md              # Project documentation
+│── requirements.txt       # List of dependencies
+│── users/                 # User authentication app
+│── tasks/                 # Task management app
+│── my_project/            # Main Django settings
 │── ...
 Database Model
 
@@ -66,35 +66,28 @@ Week 3	Build API endpoints and CRUD functionality
 Week 4	Add filtering, documentation, and testing
 Week 5	Deploy and finalize the project
 Deployment (PythonAnywhere)
-Prepare the application:
-
+Prepare the Application:
 Set DEBUG = False in settings.py.
 
-Add PythonAnywhere domain to ALLOWED_HOSTS.
+Add the PythonAnywhere domain to ALLOWED_HOSTS.
 
 Collect static files using python manage.py collectstatic.
 
-Set up PythonAnywhere:
-
+Set Up PythonAnywhere:
 Create a virtual environment and install dependencies.
 
 Configure WSGI and project settings.
 
-Upload the code:
-
+Upload the Code:
 Clone the repository or upload manually.
 
-Configure static and media files:
-
+Configure Static and Media Files:
 Set up static and media URL paths.
 
-Monitor and debug:
-
+Monitor and Debug:
 Use PythonAnywhere's error logs for troubleshooting.
 
 Testing with Postman
-To test the Task Management API using Postman, follow the steps below:
-
 1. Register a New User
 Request Type: POST
 
@@ -125,8 +118,6 @@ Response (Example):
 {
     "access": "your_jwt_token"
 }
-Copy the access token from the response. You will use this token for authenticated requests.
-
 3. Create a New Task
 Request Type: POST
 
@@ -134,8 +125,8 @@ Endpoint: /tasks/
 
 Headers:
 
-Authorization: Bearer <your_jwt_token>
 
+Authorization: Bearer <your_jwt_token>
 Body (JSON):
 
 
@@ -165,8 +156,8 @@ Endpoint: /tasks/
 
 Headers:
 
-Authorization: Bearer <your_jwt_token>
 
+Authorization: Bearer <your_jwt_token>
 Response (Example):
 
 
@@ -189,8 +180,8 @@ Endpoint: /tasks/{id}/
 
 Headers:
 
-Authorization: Bearer <your_jwt_token>
 
+Authorization: Bearer <your_jwt_token>
 Body (JSON):
 
 
@@ -218,8 +209,8 @@ Endpoint: /tasks/{id}/
 
 Headers:
 
-Authorization: Bearer <your_jwt_token>
 
+Authorization: Bearer <your_jwt_token>
 Response (Example):
 
 
@@ -233,8 +224,8 @@ Endpoint: /tasks/?completed=true
 
 Headers:
 
-Authorization: Bearer <your_jwt_token>
 
+Authorization: Bearer <your_jwt_token>
 Response (Example):
 
 
@@ -250,13 +241,11 @@ Response (Example):
         "updated_at": "2025-04-05T09:15:00Z"
     }
 ]
-Tests
-You can test the API using the above steps in Postman, and these requests will help verify that the system is working as expected.
-
 Additional Notes
 Security: Uses JWT for user authentication (djangorestframework-simplejwt).
 
 API Documentation: Available through Swagger or DRF Docs.
 
 Hosting: Deployed on PythonAnywhere.
-https://alanwartech.pythonanywhere.com/
+
+Visit Task Management API on PythonAnywhere
