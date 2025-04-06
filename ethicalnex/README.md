@@ -1,4 +1,3 @@
-
 Task Management API
 Overview
 The Task Management API helps users efficiently manage their tasks. It provides functionality to create, update, delete, and organize tasks. Ideal for to-do lists or productivity tools, this API is secured with JWT authentication and deployed on PythonAnywhere.
